@@ -7,20 +7,76 @@
   //import CardItem from './CardItem.vue';
   
   import { ref, computed } from 'vue';
-  import Header  from './components/Header.vue';
+  import ProductList from './components/ProductList.vue';
+  import ProductDetails from './components/ProductDetails.vue';
+
+  // import MortgageCalculator from './components/MortgageCalculator.vue';
+  //import Books from './components/Books.vue';
+  //import ProductsComp from './components/ProductsComp.vue';
+  //import Autentification from './components/Autentification.vue';
+  //import CalcFunc from './components/CalcFunc.vue';
+  //import Header  from './components/Header.vue';
   //import FilterTags from './components/FilterTags.vue';
   //import ArticleList from './components/ArticleList.vue';
 
-  import BlogBannerArticlesNews from './components/BlogBannerArticlesNews.vue';
+  //import BlogBannerArticlesNews from './components/BlogBannerArticlesNews.vue';
   //import BlogBannerFilteredArticles from './BlogBannerFilteredArticles.vue';
-  import LatestPost from './components/LatestPost.vue';
+  //import LatestPost from './components/LatestPost.vue';
 
-  import NewsList from './components/NewsList.vue';
+  //import NewsList from './components/NewsList.vue';
 
 
-  import Footer from './components/Footer.vue';
+  //import Footer from './components/Footer.vue';
   
-  const newsItems = [
+  const products = ref([
+        {
+            id: 1,
+            name: 'Смартфон 1',
+            price: 10278.00,
+            available: true,
+            description: 'Описание смартфона 1',
+            addionalInfo: ''
+        },
+        {
+            id: 2,
+            name: 'Смартфон 2',
+            price: 15342.99,
+            available: false,
+            description: 'Описание смартфона 2',
+            addionalInfo: 'Будет в наличии через 2 недели'
+        },
+        {
+            id: 3,
+            name: 'Смартфон 3',
+            price: 25010.00,
+            available: true,
+            description: 'Описание смартфона 3',
+            addionalInfo: ''
+        }
+    ])
+
+    // Активный продукт
+    const activeProduct = ref(null);
+
+   // Режимы отображения товаров
+    const isListVisible = ref(true); //По умолчанию показывается список товаров
+    const isDetailVisible = ref(false); //По умолчанию детали товара скрыты
+
+    // Функция для показа деталей товаров - когда нажимается кнопка просмотра деталей товара, компонент меняется на режим отображения конкретной карточки.
+    const openDetails = (product) => {
+      activeProduct.value = product;
+      isListVisible.value = false;
+      isDetailVisible.value = true;
+    }
+
+    //Функция для возврата обратно к списку 
+    const backToList = () => {
+      isListVisible.value = true;
+      isDetailVisible.value = false;
+    }
+
+
+  /*const newsItems = [
     {
       title: 'Дизайн кухни',
       imageUrl: 'src/assets/img/blog1.png',
@@ -82,12 +138,12 @@
       date: new Date('2022-12-26')
     },
 
-  ])
+  ])*/
 
-  const latestPost = computed(() => posts.value.slice(-1)[0]); //Метод slice(startIndex, endIndex) создает новую копию части исходного массива, начиная с индекса startIndex и заканчивая индексом endIndex (не включительно). Если startIndex отрицательный, он отсчитывается с конца массива.Здесь slice(-1) берет последний элемент массива, а [0] извлекает первый (и единственный) элемент из результирующего массива.
+ // const latestPost = computed(() => posts.value.slice(-1)[0]); //Метод slice(startIndex, endIndex) создает новую копию части исходного массива, начиная с индекса startIndex и заканчивая индексом endIndex (не включительно). Если startIndex отрицательный, он отсчитывается с конца массива.Здесь slice(-1) берет последний элемент массива, а [0] извлекает первый (и единственный) элемент из результирующего массива.
 
 
-  const articles = ref([
+  /*const articles = ref([
     {
             id: 1,
             title: 'Создадим лучший макет перепланировки',
@@ -164,19 +220,38 @@
 
   const updateSelectedTag = (tag) => {
     selectedTag.value = tag;
-  }
+  }*/
 </script>
 
 <template>
   <div id="app">
+
+    <ProductList 
+      v-if="isListVisible"
+      :products="products"
+      :open-details="openDetails"
+    />
+
+    <ProductDetails 
+      v-if="isDetailVisible && activeProduct"
+      :product="activeProduct"
+      :back-to-list="backToList"  
+    />
+
+<!--    <MortgageCalculator />  -->
+
+<!--    <Books /> -->
+<!--   <ProductsComp />  -->
+  <!--  <Autentification /> -->
+  <!--  <CalcFunc />  -->
     
-      <Header />
+ <!--     <Header /> -->
   <!--    <div class="blog-banner">
           <div class="blog-banner-wrapper"></div>
       </div> -->
-      <BlogBannerArticlesNews />
+ <!--     <BlogBannerArticlesNews />  -->
   <!--<BlogBannerFilteredArticles />-->
-      <div class="blog">
+  <!--    <div class="blog">
         <div class="blog-wrapper">
         <LatestPost
           v-if="latestPost"
@@ -184,7 +259,7 @@
           :description="latestPost.description"
           :imageUrl="latestPost.imageUrl"
           :date="latestPost.date"/>
-        <NewsList :newsItems="newsItems" />
+        <NewsList :newsItems="newsItems" /> -->
 
    <!-- <div class="blog-wrapper blog-details-wrapper">
           <div class="blog-main">
@@ -196,29 +271,11 @@
               @update:selectedTag="updateSelectedTag"/>            
           </div>
         </div> -->
-      </div>
+ <!--     </div> 
     </div>
-      <Footer />
+      <Footer /> -->
    
   </div>
-  <!-- <header>
-    <img alt="Vue logo" class="logo" src="./assets/logo.svg" width="125" height="125" />
-
-    <div class="wrapper">
-      <!-- <HelloWorld msg="Welcome!" /> 
-      <NewComponent /> -->
-      <!-- <GalleryComp /> -->
-      <!-- <CardItem /> -->
-      <!-- <ArticleList />   
-    </div>
-  </header>
-
-  <main>
-     <!-- <TheWelcome />
-   
-    <NewComponent /> 
-    <GalleryComp /> -->
-  <!--</main> -->
   
 </template>
 
