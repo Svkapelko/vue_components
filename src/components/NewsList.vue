@@ -1,18 +1,20 @@
 <script setup>
-
+    import { defineProps } from 'vue';
     import NewsItem from './NewsItem.vue';
+
     const props = defineProps({
         newsItems: Array,
-    });
+    })
 
 </script>
 
 <template> 
-    <div class="blog-top blog-top-news">
+    <div class="blog-wrapper">
+        <div class="blog-top blog-top-news">
         <h1 class="title-text">Статьи & Новости</h1>
     </div>
 
-    <div class="blog-content cards-container">
+    <div class="blog-content cards-container news-list">
         <NewsItem
             v-for="(item, index) in newsItems"
             :key="index"
@@ -22,5 +24,7 @@
             :date="item.date"
         />
     </div>  
+    </div>
+    
   </template>
 

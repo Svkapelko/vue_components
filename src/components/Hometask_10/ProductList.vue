@@ -9,7 +9,7 @@
 
 В компоненте "ProductDetails" отобразите название продукта, его форматированную цену и статус доступности. Если продукт доступен, отобразите текст "Available", в противном случае - "Out of stock".*/
 
-    import ProductItem from '@/components/ProductItem.vue'
+    import ProductItem from '../../ProductItem.vue'
 
     //  Получаем товары и функцию обратного вызова
     const props = defineProps({ /*Объявление входных параметров компонента*/

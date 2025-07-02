@@ -1,7 +1,7 @@
 <!-- ArticleList.vue отвечает за отображение списка статей и фильтрацию по тегам.-->
 <script setup>
-    import { computed } from 'vue'
-    import ArticleItem from './ArticleItem.vue'
+    import { computed } from 'vue';
+    import ArticleItem from './components/ArticleItem.vue';
 
   const props = defineProps({
     articles: {

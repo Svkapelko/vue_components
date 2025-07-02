@@ -1,6 +1,6 @@
 <!-- ArticleItem.vue предназначен для вывода отдельной статьи -->
 <script setup>
-
+    import { defineProps } from 'vue';
     const props = defineProps({ //Пропсы необходимы для получения данных извне компонента, в данном случае, конкретной статьи.
         article: {
             type: Object,

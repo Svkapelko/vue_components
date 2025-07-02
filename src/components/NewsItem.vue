@@ -1,6 +1,6 @@
 <script setup>
 
-    import { computed } from 'vue';
+    import { defineProps, computed } from 'vue';
 
     const props = defineProps({
         title: String,
@@ -20,10 +20,10 @@
     <div class="card">
       <div class="blog-card-image card-header"> <!-- можно переименовать в news-card-->
         <img :src="imageUrl" :alt="title">
-        <p class="card-title blog-card-text-date">{{ title }}</p>
+        <p class="card-title blog-card-text-date">{{ props.title }}</p>
       </div>
       <div class="blog-card-content card-body">
-        <p class="blog-card-text">{{ description }}</p>
+        <p class="blog-card-text">{{ props.description }}</p>
         <div class="card-bottom">
           <p class="blog-card-text-date">{{ formattedDate }}</p>
     <!--  <button class="card-button">
