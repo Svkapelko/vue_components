@@ -10,9 +10,9 @@
 
 <template> 
     <div class="blog-wrapper">
-        <div class="blog-top blog-top-news">
-        <h1 class="title-text">Статьи & Новости</h1>
-    </div>
+        <div class="blog-top-news">
+            <h1 class="title-text">Статьи & Новости</h1>
+        </div>
 
     <div class="blog-content cards-container news-list">
         <NewsItem
@@ -28,3 +28,29 @@
     
   </template>
 
+  <style scoped>
+
+    .blog-wrapper {
+        margin: 96px 360px 53px 360px;
+        width: 100%;
+        max-width: 1200px;
+    }
+
+    .blog-top-news {
+        margin-top: 88px;
+    }
+
+     .title-text {
+        color: rgb(41, 47, 54);
+        font-family: DM Serif Display;
+        font-size: 50px;
+        font-weight: 400;
+        line-height: 125%;
+        letter-spacing: 2%;
+        text-align: left;
+    }
+
+
+
+
+  </style>

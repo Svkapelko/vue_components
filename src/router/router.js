@@ -5,6 +5,7 @@ import AboutContent from "@/components/Lection_15/AboutContent.vue"
 import CataloguePage from "@/components/Seminar_15/CataloguePage.vue"
 import NotFound from "@/components/Lection_15/NotFound.vue"
 import BlogPage from "@/components/pages/BlogPage.vue"
+import BlogDetails from "@/components/pages/BlogDetails.vue"
 
 
 const routes = [
@@ -14,7 +15,8 @@ const routes = [
     {path: '/404', name: 'NotFound', component: NotFound}, 
     {path: '/:pathMatch(.*)', redirect: '/404' }, //Все неизвестные маршруты отправляются на 404
     // ПРОЕКТ!!!
-    {path: '/blog', name: 'BlogPage', component: BlogPage}
+    {path: '/blog', name: 'BlogPage', component: BlogPage},
+    {path: '/blog/:details', name: 'BlogDetails', component: BlogDetails}
 ]
 
 const router = createRouter({

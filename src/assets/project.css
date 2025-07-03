@@ -77,7 +77,7 @@ body {
     margin: 53px 360px 53px 360px;
     width: 100%;
     max-width: 1200px;
-}*/
+}
 
 
 .sub-text {
@@ -300,6 +300,10 @@ body {
     align-items: center;*/
 }
 
+.card :hover {
+    background-color: rgb(244, 240, 236);
+}
+
 
 .blog-content-card {
     
@@ -491,11 +495,11 @@ body {
     margin-right: 34px;
 }
 
-.banner-wrapper {
+/*.banner-wrapper {
     background-image: url(img/kitchen.png);
     height: 356px;
     background-position: center center;
-}
+}*/
 
 .section-title {
     display: flex;
