@@ -16,7 +16,7 @@ const routes = [
     {path: '/:pathMatch(.*)', redirect: '/404' }, //Все неизвестные маршруты отправляются на 404
     // ПРОЕКТ!!!
     {path: '/blog', name: 'BlogPage', component: BlogPage},
-    {path: '/blog/:details', name: 'BlogDetails', component: BlogDetails}
+    {path: '/blog/:id', name: 'BlogDetails', component: BlogDetails,  props: true} // Включаем props, чтобы передавать параметры из маршрута}
 ]
 
 const router = createRouter({

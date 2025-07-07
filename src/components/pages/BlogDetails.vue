@@ -7,7 +7,6 @@
     import FilterTags from '../FilterTags.vue';
     import Footer from '../Footer.vue';
    
-
     const articles = ref([
     {
             id: 1,
@@ -81,6 +80,14 @@
     }
   ])
 
+  // Получаем идентификатор поста из маршрута
+ /* const articleId = route.params.id;
+
+  // Ищем пост по id
+  const article = computed(() => {
+    return articles.value.find(p => p.id.toString() === articleId);
+  });*/
+
   const selectedTag = ref(null);
 
   const updateSelectedTag = (tag) => {
@@ -109,11 +116,7 @@
         </main>
         <Footer/>
     </div>
-
-
-
 </template>
-
 
 <style>
 

@@ -3,7 +3,7 @@
     import NewsItem from './NewsItem.vue';
 
     const props = defineProps({
-        newsItems: Array,
+        newsItems: Array, 
     })
 
 </script>
@@ -14,16 +14,27 @@
             <h1 class="title-text">Статьи & Новости</h1>
         </div>
 
+ <!--   <div class="blog-content cards-container news-list">
+        <NewsItem
+            v-for="(newsItem, index) in newsItems"
+            :key="index"
+            :title="newsItem.title"
+            :description="newsItem.description"
+            :imageUrl="newsItem.imageUrl"
+            :date="newsItem.date"
+        /> 
+    </div> -->
     <div class="blog-content cards-container news-list">
         <NewsItem
-            v-for="(item, index) in newsItems"
-            :key="index"
-            :title="item.title"
-            :description="item.description"
-            :imageUrl="item.imageUrl"
-            :date="item.date"
-        />
-    </div>  
+            v-for="newsItem in newsItems"
+            :key="newsItem.id"
+            :id ="newsItem.id"
+            :title="newsItem.title"
+            :description="newsItem.description"
+            :imageUrl="newsItem.imageUrl"
+            :date="newsItem.date"
+        /> 
+    </div>
     </div>
     
   </template>

@@ -14,23 +14,14 @@
     }
   })
 
-// Фильтрация статей 
 const filteredArticles = computed(() => {
   if (props.selectedTag) {
         return props.articles.filter(article => article.tags.includes(props.selectedTag))
   } else {
       return props.articles
   } 
-}) // Это вычисляемое свойство, которое возвращает либо полный список статей (если selectedTag равен null), либо отфильтрованный список статей, содержащие указанный тег. Используется метод filter, который проверяет наличие тега в массиве tags каждой статьи.
+}) 
 
-
-/*const uniqueTags = computed(() => {
-  const allTags = []
-  props.articles.forEach(article => {
-    allTags.push(...article.tags)
-  })
-  return [...new Set(allTags)]
-}) */
 </script>
 
 <template>

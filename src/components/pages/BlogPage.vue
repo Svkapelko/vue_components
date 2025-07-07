@@ -34,50 +34,50 @@
 
     const latestPost = computed(() =>  posts.value.slice(-1)[0]); //Метод slice(startIndex, endIndex) создает новую копию части исходного массива, начиная с индекса startIndex и заканчивая индексом endIndex (не включительно). Если startIndex отрицательный, он отсчитывается с конца массива.Здесь slice(-1) берет последний элемент массива, а [0] извлекает первый (и единственный) элемент из результирующего массива. 
 
-     const newsItems = ref([
+     const newsItems = [
     {
-      
+      id: 1,
       title: 'Дизайн кухни',
       imageUrl: 'src/assets/img/blog1.png',
       description: 'Создадим лучший макет перепланировки', 
       date: new Date('2022-12-26'),
     },
     {
-     
+      id: 2,
       title: 'Дизайн дома',
       imageUrl: 'src/assets/img/blog2.png',
       description: 'Лучшие интерьерные идеи по низкой цене',
       date: new Date('2022-12-22'),
     },
     {
-      
+      id: 3,
       title: 'Дизайн интерьера',
       description: 'Лучшие интерьерные решения для офисов',
       date: new Date('2022-12-25'),
       imageUrl: 'src/assets/img/blog3.png'
     },
     {
-     
+      id: 4,
       title: 'Дизайн кухни',
       imageUrl: 'src/assets/img/blog1.png',
       description: 'Создадим лучший макет перепланировки', 
       date: new Date('2022-12-26'),
     },
     {
-     
+      id: 5,
       title: 'Дизайн дома',
       imageUrl: 'src/assets/img/blog2.png',
       description: 'Лучшие интерьерные идеи по низкой цене',
       date: new Date('2022-12-22'),
     },
     {
-     
+      id: 6,
       title: 'Дизайн интерьера',
       imageUrl: 'src/assets/img/blog6.png',
       description: 'Лучшие интерьерные решения для офисов',
       date: new Date('2022-12-25'),
     },
-  ])
+  ]
 
 </script>
 
@@ -98,12 +98,6 @@
 
         <Footer/>
     </div>
-
-
-
 </template>
-
-
 <style>
-
 </style>
