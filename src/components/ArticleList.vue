@@ -6,6 +6,7 @@
   const props = defineProps({
     articles: {
       type: Array,
+      id: Number,
       required: true
     },
     selectedTag: {

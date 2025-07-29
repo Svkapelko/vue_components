@@ -1,107 +1,252 @@
 <!-- ProjectGalleryItem.vue - компонент отображает отдельное изображение.-->
 <script setup>
-    import { defineProps } from 'vue';
+import { defineProps } from "vue";
+import { useRouter } from "vue-router";
+import MansoryWall from "./MansoryWall.vue";
 
-    //Получаем изображение  тип макета через props
-    const props = defineProps({
-        image: Object,
-        layout: String
-    })
+const router = useRouter();
+//Получаем изображение  тип макета через props
+const props = defineProps({
+  image: Object,
+  id: String,
+})
+
 </script>
 
 <template>
-    <div class="gallery-item-card" :class="props.layout === 'square' ? 'square-card': 'rectangle-card'">
-        <div class="gallery-item-image ">
-           <img :src="image.src" :alt="image.alt" class="grid-item__img">
+      <div class="gallery-item">
+        <img :src="props.item.src" :alt="props.item.alt" class="item-img" />
+        <div class="project-card-content">
+          <div class="flex-title-block">
+            <p class="blog-card-text">{{ props.item.text }}</p>
+            <p class="text-heading">{{ props.item.info }}</p>
+          </div>
+          <router-link  
+        :to="{ name: 'ProjectDetails', params: { id: item.id } }"
+        class="project-card-button"
+      >
+        <svg width="70" height="70" viewBox="0 0 70 70" fill="none">
+          <circle cx="35" cy="35" r="35" fill="#F4F0EC"></circle>
+          <path
+            transform="translate(30, 25)"
+            d="M1 19L9 10L1 1"
+            stroke="#292F36"
+            stroke-width="2"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            class="triangle"
+          ></path>
+        </svg>
+          </router-link>
         </div>
-        <div class="gallery-item-content project-card-content">
-            <div class="flex-title-block">
-                <p class="blog-card-text"> {{ image.text }} </p>
-                <p class="text-heading"> {{ image.info }}</p> 
-            </div>
-            <div class="project-card-bottom">
-                <a href="#">
-                    <svg width="70" height="70" viewBox="0 0 70 70" fill="none">
-                        <!-- Круг -->
-                        <circle cx="35" cy="35" r="35" fill="#F4F0EC"></circle>       
-                        <!-- Стрелка -->
-                        <svg x="30" y="25" width="10" height="20" viewBox="0 0 10 20" fill="none" xmlns="http://www.w3.org/2000/svg">
-                        <path d="M1 19L9 10L1 1" stroke="#292F36" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path>
-                        </svg>
-                    </svg>                
-                </a>            
-            </div>
-
-
-           
-        </div>                 
-    </div>
+      </div>
 </template>
 
+  
+
+<!-- <masonry-wall :items="props.image" :ssr-columns="2" :column-width="585" :gap="16">
+    <template #default="{ image, index }">
+      <div :style="{ height: `${(index + 1) * 100}px` }">
+        <h1>{{ image.title }}</h1>
+        <span>{{ image.description }}</span>
+      </div>
+    </template>
+  </masonry-wall> 
+</template> -->
+ <!--   <div
+    class="gallery-item-card"
+    :class="props.layout === 'square' ? 'square-card' : 'rectangle-card'"
+  >
+    <div class="gallery-item-image ">
+      <img :src="image.src" :alt="image.alt" class="grid-item__img" />
+    </div>
+    <div class="project-card-content">
+      <div class="flex-title-block">
+        <p class="blog-card-text">{{ image.text }}</p>
+        <p class="text-heading">{{ image.info }}</p>
+      </div>
+      <router-link
+        :to="{ name: 'ProjectDetails', params: { id: props.image.id } }"
+        class="project-card-button"
+      >
+        <svg width="70" height="70" viewBox="0 0 70 70" fill="none">
+          <circle cx="35" cy="35" r="35" fill="#F4F0EC"></circle>
+          <path
+            transform="translate(30, 25)"
+            d="M1 19L9 10L1 1"
+            stroke="#292F36"
+            stroke-width="2"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            class="triangle"
+          ></path>
+        </svg>
+      </router-link>
+    </div>
+  </div>-->
+<!--  <div :class="['gallery-item-card', props.layout]">
+    <img :src="props.image.src" :alt="props.image.alt" class="item-img" />
+    <div class="caption">
+      <h3>{{ props.image.text }}</h3>
+      <p>Категория: {{ props.image.category }}</p>
+    </div>
+  </div> -->
+<!--  <div
+    class="gallery-item-card"
+    :class="props.layout === 'square' ? 'square-card' : 'rectangle-card'"
+  >
+    <div class="gallery-item-image ">
+      <img :src="image.src" :alt="image.alt" class="grid-item__img" />
+    </div>
+    <div class="project-card-content">
+      <div class="flex-title-block">
+        <p class="blog-card-text">{{ image.text }}</p>
+        <p class="text-heading">{{ image.info }}</p>
+      </div>
+      <router-link
+        :to="{ name: 'ProjectDetails', params: { id: props.image.id } }"
+        class="project-card-button"
+      >
+        <svg width="70" height="70" viewBox="0 0 70 70" fill="none">
+          <circle cx="35" cy="35" r="35" fill="#F4F0EC"></circle>
+          <path
+            transform="translate(30, 25)"
+            d="M1 19L9 10L1 1"
+            stroke="#292F36"
+            stroke-width="2"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            class="triangle"
+          ></path>
+        </svg>
+      </router-link>
+    </div>
+  </div> -->
+
+<!--  <div
+    class="gallery-item"
+    :class="props.layout === 'square' ? 'square-card' : 'rectangle-card'"
+  >
+    <div class="gallery-image">
+      <img :src="image.src" :alt="image.alt" class="grid-item__img" />
+    </div>
+    <div class="project-card-content">
+      <div class="flex-title-block">
+        <p class="blog-card-text">{{ image.text }}</p>
+        <p class="text-heading">{{ image.info }}</p>
+      </div>
+      <router-link
+        :to="{ name: 'ProjectDetails', params: { id: props.image.id } }"
+        class="project-card-button"
+      >
+        <svg width="70" height="70" viewBox="0 0 70 70" fill="none">
+          <circle cx="35" cy="35" r="35" fill="#F4F0EC"></circle>
+          <path
+            transform="translate(30, 25)"
+            d="M1 19L9 10L1 1"
+            stroke="#292F36"
+            stroke-width="2"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            class="triangle"
+          ></path>
+        </svg>
+      </router-link>
+    </div>
+  </div>-->
+
+
 <style scoped>
-    .gallery-item-card {
-        width: 585px;
-        /*height: 947px;*/
-        overflow: hidden;
-        margin-bottom: 64px;
-    }
 
-    .gallery-item-card::after {
-        content: "";
-        display: block;
-        padding-bottom: 100%; /* Поддерживает квадратную форму (соотношение сторон 1:1) */
-    }
 
-   /* .rectangle-card {
-        height: 947px;
-        position: relative;
-        overflow: hidden;
-        border-radius: 8px;
-        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    }*/
+/*.item {
+  border: 1px solid black
+}*/
+.project-card-button:hover .triangle {
+  transform: translate(40px, 45px) rotate(-180deg);
+}
+.gallery-item-card {
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  margin-bottom: 20px;
+}
 
-   /* .rectangle-card img {
-        display: block;
-        height: 853px;
-        overflow: hidden;
-        position: absolute;
-    }*/
+.item-img {
+  width: 100%;
+  height: auto;
+  object-fit: cover;
+}
 
-   /* .gallery-item-image {
-        margin-bottom: 24px;
-        position: relative;
-    }*/
 
-   /*.square-card {
-        height: 616px;
-        margin-bottom: 35px;
-        position: relative;
-        overflow: hidden;
-        border-radius: 8px;
-        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    }*/
-    /*.square-card img  {
-        display: block;
-        height: 522px;
-        overflow: hidden;
-        position: absolute;
-        left: -231px;
-    } */
+/*.gallery-item-card {
+  width: 585px;
+  overflow: hidden;
+  margin-bottom: 64px;
+}*/
 
-    /*.gallery-item-content {
-        position: relative;
-        top: 85%;
-    }*/
+/*.gallery-item {
+  width: 585px;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}*/
 
-   /* .grid {
+
+
+/*.gallery-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}*/
+/*.gallery-item::after {
+  content: "";
+  display: block;
+  padding-bottom: 100%; /* Поддерживает квадратную форму (соотношение сторон 1:1)
+}*/
+
+/*.rectangle-card {
+  height: 947px;
+}*/
+
+/*.rectangle-card img {
+  display: block;
+  height: 853px;
+  overflow: hidden;
+  position: absolute;
+}*/
+
+/*.gallery-item-image {
+  margin-bottom: 24px;
+  position: relative;
+}*/
+
+/*.square-card {
+  height: 616px;
+}*/
+
+/*.square-card img {
+  display: block;
+  height: 522px;
+  overflow: hidden;
+  position: absolute;
+  left: -231px;
+}*/
+
+/*.gallery-item-content {
+  position: relative;
+  top: 85%;
+}*/
+
+ /*.grid {
   max-width: 1200px;
   margin: 0 auto;
   padding: 20px;
-}*/
+}
 
 .grid-sizer,
 .grid-item {
-  width: calc(25% - 20px); /* четыре колонки по 25% минус отступы */
+  width: calc(25% - 20px); 
 }
 
 .grid-item {
@@ -118,5 +263,5 @@
   height: auto;
   object-fit: cover;
   display: block;
-}
+}*/
 </style>

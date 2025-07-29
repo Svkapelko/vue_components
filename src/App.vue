@@ -94,6 +94,7 @@
   // import NewsList from './components/NewsList.vue';
 
   import Footer from './components/Footer.vue';
+import Project from './components/pages/Project.vue';
 
   
  // Список платежей
@@ -240,11 +241,11 @@ router.afterEach((to) => {
     </p> -->
 <!-- <p class="current-page"> {{ $route.name }}</p>  -->
      <nav>
-       <Router-link to="/">Dashboard</Router-link>
-        <Router-link to="/about/content">About</Router-link> 
-        <Router-link to="/catalogue">Catalogue</Router-link> 
+   <!--   <router-link to="/">Dashboard</router-link>
+      <router-link to="/about">AboutContent</router-link>
+      <router-link to="/catalogue">Catalogue</router-link> -->
+
         
-      
         <!-- С помощью компонента <router-link> мы отображаем пользователю ссылку (по умолчанию идет рендер в тэг <a><a/>). Такая ссылка уже содержит в себе обработчик нажатия: вместо стандартного поведения будет запущена логика работы Vue Router. Свойство to определяет URL для перехода.-->
             
      </nav>

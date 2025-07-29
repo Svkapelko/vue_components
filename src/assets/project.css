@@ -79,7 +79,6 @@ body {
     max-width: 1200px;
 }
 
-
 .sub-text {
     font-size: 65px;    
 }
@@ -153,6 +152,7 @@ body {
     display: flex;
     align-items: center;
     justify-content: center;
+    text-decoration: none;
 }
 
 .intro-button svg {
@@ -162,9 +162,7 @@ body {
 }
 
 .project-wrapper {
-    margin: 53px 360px 96px 360px;
-    /*display: flex;
-    flex-direction: column;*/
+    margin: 0px 360px 96px 360px;
     width: 100%;
     max-width: 1200px;
   }
@@ -175,38 +173,40 @@ body {
     flex-wrap: wrap;
     gap: 10px;
     margin-top: 93px;
-    margin-bottom: 33px;
+    /*margin-bottom: 33px;*/
 }
 
 .project-card-image {  
     width: 548px;
     height: 525px;
     overflow: hidden;
+    background-size: cover;
+    background-position: center;
 }
 
 .image-top-left {
-    background-image: url(img/proj01.png);
+    /*background-image: url(img/proj01.png);*/
     background-size: cover;
     background-position: center;   
     border-radius: 0px 80px 0px 0px;
 }
 
 .image-top-right {
-    background-image: url(img/proj02.png);
+   /* background-image: url(img/proj02.png);*/
     background-size: cover;
     background-position: center;   
     border-radius: 80px 0px 0px 0px;
 }
 
 .image-bottom-left {
-    background-image: url(img/proj03.png);
+ /*   background-image: url(img/proj03.png);*/
     background-size: cover;
     background-position: center;   
     border-radius: 0px 0px 80px 0px;
 }
 
 .image-bottom-right {
-    background-image: url(img/proj04.png);
+ /*   background-image: url(img/proj04.png);*/
     background-size: cover;
     background-position: center;   
     border-radius: 0px 0px 0px 80px;
@@ -225,6 +225,7 @@ body {
     display: flex;
     align-items: flex-end;
     justify-content: space-between;
+    margin-top: 21px;
 }
 
 
@@ -270,8 +271,8 @@ body {
   
 .flex-p {
     display: flex;
-    flex-direction: column;
-    justify-content: center; 
+    flex-direction: column; 
+    align-items: center;
     line-height: 1.5em; 
   }
 
@@ -392,7 +393,7 @@ body {
     background: #fff;
 }
 
-/*.footer-wrapper {
+.footer-wrapper {
     width: 100%;
     max-width: 1200px;
     display: flex;
@@ -424,7 +425,7 @@ body {
 }
 .nav-link-footer {
     text-align: left;
-}*/
+}
 
 .blog-top-news {
     margin-top: 88px;

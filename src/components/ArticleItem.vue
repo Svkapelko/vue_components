@@ -1,9 +1,11 @@
 <!-- ArticleItem.vue предназначен для вывода отдельной статьи -->
 <script setup>
     import { defineProps } from 'vue';
+
     const props = defineProps({ //Пропсы необходимы для получения данных извне компонента, в данном случае, конкретной статьи.
         article: {
             type: Object,
+            id: Number,
             required: true
         }
     })
@@ -32,8 +34,6 @@
         </div>
 
         <p class="post-desc-text"> {{ article.description }} </p>
- 
-        <p class="post-desc-text"> {{ article.description }} </p>
   
         <div class="quotes">
             <span>,,</span>
@@ -52,3 +52,4 @@
 <!--
     Компонент предназначен для вывода отдельной статьи, содержащей заголовок, описание, картинку, сноски, цитату и теги. Он получает данные статьи через пропс article и динамически отображает эти данные с помощью стандартных возможностей Vue.js, таких как директивы v-for и интерполяция выражений ({{ expression }}).
 -->
+

@@ -140,7 +140,7 @@
     const totalPages = computed(() => Math.ceil(products.length / perPage))
 
 
-    const paginatedCatalogue = computed(() => {
+    const paginatedGallery = computed(() => {
         const startIndex = (currentPage.value - 1 ) * perPage;
         const endIndex = startIndex + perPage;
         return products.slice(startIndex, endIndex)
