@@ -11,14 +11,6 @@
    
     const selectedTag = ref(null);
 
-    /*const uniqueTags = computed(() => {
-        const allTags = []
-        props.articles.forEach(article => {
-            allTags.push(...article.tags)
-        })
-        return [...new Set(allTags)]
-    })*/
-
     // улучшенный вариант c использованием метода flatMap - избавляемся от дополнительного цикла и создаем уникальный набор тегов в одной строке. Здесь создается вычисляемое свойство uniqueTags, которое собирает все уникальные теги из всех статей. Оно использует flatMap для объединения всех тегов из каждой статьи в один массив - преобразует массив статей в единый массив тегов, а затем применяет Set для удаления дубликатов - создает новый массив из уникальных значений тегов.
     const uniqueTags = computed(() => {
       return [
@@ -46,7 +38,7 @@
             v-for="tag in uniqueTags" 
             :key="tag" 
             @click="selectTag(tag)" 
-            :class="{ active: props.selectedTag === tag }" 
+            :class="{ active: selectedTag === tag }"
             class="button-tags blog-card-text-date">
               {{ tag }}
           </button>
@@ -62,7 +54,7 @@
 4.Рендеринг: Каждый раз, когда меняется состояние selectedTag, шаблон автоматически перерисовывается, добавляя активный класс к активной кнопке. -->
 
 <style>
-    .button-tags:active  {
+    .button-tags.active  {
       color: rgb(244, 240, 236);
       background-color: black;
     }
